@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-1</y>
+     <width>1200</width>
+     <height>800</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#widget{
+background-color:rgb(117, 13, 127);}</string>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>80</y>
+      <width>561</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 32pt &quot;Calibri&quot;;color:white</string>
+    </property>
+    <property name="text">
+     <string>Create Vaccination Center</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="create_center">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>710</y>
+      <width>411</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:20px;background-color:rgb(225, 134, 127);
+font: 20pt &quot;Calibri&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Create vaccination center</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_name">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>180</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16pt &quot;Calibri&quot;;color:white</string>
+    </property>
+    <property name="text">
+     <string>Name</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="text_edit_name">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>210</y>
+      <width>721</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(176, 176, 176);
+font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="text_edit_postcode">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>300</y>
+      <width>721</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(176, 176, 176);
+font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_name_2">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>270</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16pt &quot;Calibri&quot;;color:white</string>
+    </property>
+    <property name="text">
+     <string>Postcode</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_name_3">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>360</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16pt &quot;Calibri&quot;;color:white</string>
+    </property>
+    <property name="text">
+     <string>Address</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_name_4">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>510</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16pt &quot;Calibri&quot;;color:white</string>
+    </property>
+    <property name="text">
+     <string>Capacity per hour</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_name_5">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>600</y>
+      <width>191</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16pt &quot;Calibri&quot;;color:white</string>
+    </property>
+    <property name="text">
+     <string>Capacity per day</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_edit_address">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>390</y>
+      <width>721</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(176, 176, 176);
+font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="text_edit_caphour">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>540</y>
+      <width>721</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(176, 176, 176);
+font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="text_edit_capday">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>630</y>
+      <width>721</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(176, 176, 176);
+font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="back_admin_page">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>710</y>
+      <width>411</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:20px;background-color:rgb(225, 134, 127);
+font: 20pt &quot;Calibri&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Back to Admin Page</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
