@@ -274,7 +274,7 @@ font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
      <string>State</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="signup_2">
+   <widget class="QPushButton" name="goToSignIn">
     <property name="geometry">
      <rect>
       <x>510</x>

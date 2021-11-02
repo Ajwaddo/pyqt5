@@ -29,8 +29,8 @@ background-color:rgb(234, 234, 234);}</string>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>80</y>
+      <x>370</x>
+      <y>30</y>
       <width>191</width>
       <height>81</height>
      </rect>
@@ -56,7 +56,7 @@ background-color:rgb(234, 234, 234);}</string>
 font: 20pt &quot;Calibri&quot;;</string>
     </property>
     <property name="text">
-     <string>Login</string>
+     <string>back to admin page</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="tableWidget">
@@ -107,31 +107,85 @@ font: 20pt &quot;Calibri&quot;;</string>
    <widget class="QComboBox" name="comboBox_vacc_center">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>160</y>
-      <width>481</width>
-      <height>51</height>
+      <x>340</x>
+      <y>110</y>
+      <width>231</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font:&quot;Calibri&quot;; font-size:16pt;</string>
+     <string notr="true">font:&quot;Calibri&quot;; font-size:12pt;</string>
     </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_sortBy">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>110</y>
+      <width>231</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font:&quot;Calibri&quot;; font-size:12pt;</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Name</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Age</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>IC Number</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Vaccination Date</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Vaccination Time</string>
+     </property>
+    </item>
    </widget>
    <widget class="QPushButton" name="btn_show">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>160</y>
-      <width>111</width>
-      <height>51</height>
+      <x>570</x>
+      <y>180</y>
+      <width>101</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius:20px;background-color:rgb(225, 134, 127);
+     <string notr="true">border-radius:15px;background-color:rgb(225, 134, 127);
 font: 20pt &quot;Calibri&quot;;</string>
     </property>
     <property name="text">
      <string>Show</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>30</y>
+      <width>191</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 32pt &quot;Calibri&quot;;color:black</string>
+    </property>
+    <property name="text">
+     <string>Sort by:</string>
     </property>
    </widget>
   </widget>

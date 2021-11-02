@@ -27,17 +27,66 @@ myCursor = connection.cursor()
 # sort user list(list)
 # admin page - done
 # view appointment - done
-
+# TOTAL FUNCTIONS FOR FLOWCHART
 
 # creating class for gui
 
 class WelcomeScreen(QDialog):
-    def __init__(self):
+    def __init__(self): #1
         super(WelcomeScreen, self).__init__()
         loadUi("1welcome.ui", self)
         self.login_button.clicked.connect(self.goToLogin)
         self.sign_up_button.clicked.connect(self.goToSignUp)
         self.admin_login_button.clicked.connect(self.goToAdminPage)
+        self.admin_login_button.clicked.connect(self.autoAssign)
+    
+    def autoAssign(self): #2
+        myCursor.execute("SELECT rowid, * FROM userdata") #query all data from userdata table
+        listUser = myCursor.fetchall() #store all data in database into a tuple in list listUser
+
+        myCursor.execute("SELECT rowid, * FROM vaccinationCenters") #query all data from vaccinationCenters table
+        listVaccinationCenters = myCursor.fetchall() #store all data in database into a tuple in list listVaccinationCenters
+        
+        date_function = datetime.datetime.now()
+        time_function = datetime.datetime.now()
+        day = int(date_function.strftime('%d'))+7
+        month = int(date_function.strftime('%m'))
+        year = int(date_function.strftime('%Y'))
+        hour = int(time_function.strftime('%H'))
+        
+        # store user info yang tak dapat appointment lagi & yang dah dapat appointment dah dalam list
+        userWithoutAppointment = [[i[0], i[30]] for i in listUser if i[24] == None] # userID, userState
+        userWithAppointment = [[i[0], i[26], i[24][0:2], i[24][3:5], i[25][0:2]] for i in listUser if i[24] != None] # userID, userVenue, userDay, userMonth, userTime
+
+        # check day free or not
+        for i in listVaccinationCenters:
+            userPerDay = 0
+            userPerHour = 0
+            vaccCenter = i[1]
+            maxPerDay = i[5]
+            maxPerHour = i[4]
+            vaccState = i[6]
+
+            myCursor.execute("SELECT rowid FROM userdata WHERE vaccination_venue = :vaccVenue and vaccination_date = :vaccDate", {'vaccVenue':vaccCenter, 'vaccDate':f"{day}/{month}/{year}"})
+            userPerDay += len(myCursor.fetchall())
+
+            if userPerDay < maxPerDay and day < 28:
+                myCursor.execute("SELECT rowid FROM userdata WHERE vaccination_venue = :vaccVenue and vaccination_date = :vaccDate and vaccination_time = :vaccTime", {'vaccVenue':vaccCenter, 'vaccDate':f"{day}/{month}/{year}", 'vaccTime':f"{hour}:00"})
+                userThisHour = myCursor.fetchall()
+                userPerHour += (len(userThisHour))
+
+                if userPerHour < maxPerHour and hour >= 8 and hour<=18:
+                    for i in userWithoutAppointment:
+                        userID = i[0]
+                        userState = i[1]
+                        
+                        if vaccState == userState:
+                            myCursor.execute("UPDATE userdata SET vaccination_date = :vaccDate, vaccination_venue = :vaccVenue, vaccination_time = :vaccTime WHERE rowid = :rowid", {'vaccDate':f"{day}/{month}/{year}", 'vaccVenue':vaccCenter, 'vaccTime':f"{hour}:00", 'rowid':userID})
+                            connection.commit()
+                else:
+                    hour += 1
+            else:
+                day += 1
     
     def goToLogin(self):
         login = LoginPage()
@@ -55,13 +104,13 @@ class WelcomeScreen(QDialog):
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
 class LoginPage(QDialog):
-    def __init__(self):
+    def __init__(self): #3
         super(LoginPage, self).__init__()
         loadUi("1login_page.ui", self)
         self.login.clicked.connect(self.checkLogin)
         self.btn_goTosignup.clicked.connect(self.goToSignUp)
 
-    def checkLogin(self): #what to do when user sign in
+    def checkLogin(self): #what to do when user sign in #4
         phoneNumber = self.text_edit_phone_number.text()
         icNumber = self.text_edit_ic_number.text()
 
@@ -94,13 +143,13 @@ class LoginPage(QDialog):
         widget.setCurrentIndex(widget.currentIndex() + 1)
         
 class SignupPage(QDialog):
-    def __init__(self):
+    def __init__(self): #5
         super(SignupPage, self).__init__()
         loadUi("1signup_page.ui", self)
         self.signup.clicked.connect(self.userSignUp)
-        self.btn_goTologin.clicked.connect(self.goToLoginPage)
+        self.goToSignIn.clicked.connect(self.goToLoginPage)
 
-    def userSignUp(self): #what to do when user sign up
+    def userSignUp(self): #what to do when user sign up #6
         # hannah's code
         NAME = self.text_edit_name.text().strip().title()
         AGE = self.text_edit_age.text().strip()
@@ -136,7 +185,7 @@ class SignupPage(QDialog):
         self.text_edit_address.setText("")
 
 class RSVP(QDialog):
-    def __init__(self, icNumber):
+    def __init__(self, icNumber): #7
         super(RSVP, self).__init__()
         loadUi("2rsvp.ui", self)
         self.submit_rsvp.clicked.connect(lambda: self.SubmitRSVP(icNumber))
@@ -147,7 +196,7 @@ class RSVP(QDialog):
         widget.addWidget(main_menu)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
-    def SubmitRSVP(self, icNumber):
+    def SubmitRSVP(self, icNumber): #8
         # hakeem's code
         result = False
         if self.radioButton_yes.isChecked():
@@ -164,7 +213,7 @@ class RSVP(QDialog):
         # hakeem's code
 
 class MainMenu(QDialog):
-    def __init__(self, icNumber):
+    def __init__(self, icNumber): #9
         super(MainMenu, self).__init__()
         loadUi("3main_menu.ui", self)
         self.btn_vaccination.clicked.connect(lambda: self.goToVaccination(icNumber))
@@ -215,7 +264,7 @@ class MainMenu(QDialog):
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
 class ViewAppointment(QDialog):
-    def __init__(self, icNumber):
+    def __init__(self, icNumber): #10
         super(ViewAppointment, self).__init__()
         loadUi("3view_appointment.ui", self)
         # nabilah's code
@@ -243,7 +292,7 @@ class ViewAppointment(QDialog):
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
 class Vaccination(QDialog):
-    def __init__(self, icNumber):
+    def __init__(self, icNumber): #11
         super(Vaccination, self).__init__()
         loadUi("3vaccination_page.ui",self)
         self.radioButton_5.setChecked(True)
@@ -255,7 +304,7 @@ class Vaccination(QDialog):
         widget.addWidget(main_menu)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
-    def submitVaccination(self, icNumber):
+    def submitVaccination(self, icNumber): #12
         # nabilah's code
         Q1 = self.comboBox_q1_1.currentText()
         Q2 = self.comboBox_q1_2.currentText() 
@@ -305,7 +354,7 @@ class Vaccination(QDialog):
         # nabilah's code
 
 class Covid19Status(QDialog):
-    def __init__(self, icNumber):
+    def __init__(self, icNumber): #13
         super(Covid19Status, self).__init__()
         loadUi("3covid19_status.ui", self)
 
@@ -317,7 +366,7 @@ class Covid19Status(QDialog):
         widget.addWidget(main_menu)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
-    def submitCOVID19Status(self, icNumber):
+    def submitCOVID19Status(self, icNumber): #14
         # nabilah's code
         Q1 = self.comboBox_q2_1.currentText()
         Q2 = self.comboBox_q2_2.currentText() 
@@ -350,7 +399,7 @@ class Covid19Status(QDialog):
         # nabilah's code
 
 class AdminPage(QDialog):
-    def __init__(self):
+    def __init__(self): #15
         super(AdminPage, self).__init__()
         loadUi("4admin_page.ui", self)
         self.create_center_button.clicked.connect(self.goToCreateCenter)
@@ -383,13 +432,13 @@ class AdminPage(QDialog):
         pass
 
 class CreateCenterPage(QDialog): 
-    def __init__(self):
+    def __init__(self): #16
         super(CreateCenterPage, self).__init__()
         loadUi("4create_center.ui", self)
         self.create_center.clicked.connect(self.CreateCenter)
         self.back_admin_page.clicked.connect(self.goToAdminPage)
 
-    def CreateCenter(self): #create vaccination center
+    def CreateCenter(self): #create vaccination center #17
         # ajwad's code
         NAME = self.text_edit_name.text()
         POSTCODE = self.text_edit_postcode.text()
@@ -425,7 +474,7 @@ class ViewUsersAppointment(QDialog):
         self.tableWidget.setHorizontalHeaderLabels(["IC", "NAME", "PHONE", "DATE", "TIME", "RSVP", "RISK GROUP"])
         self.loaddata()
 
-    def loaddata(self):
+    def loaddata(self): #19
         # adding center name into combo box
         # ajwad's code
         vacc_center_list = []
@@ -438,14 +487,24 @@ class ViewUsersAppointment(QDialog):
         self.btn_show.clicked.connect(self.showdata)
         # ajwad's code
 
-    def showdata(self):
+    def showdata(self): #20
         # ajwad's code
         venue = self.comboBox_vacc_center.currentText()
+        sortBy = self.comboBox_sortBy.currentText()
+        if sortBy == "Name":
+            n = 1
+        elif sortBy == "IC Number":
+            n = 0
+        elif sortBy == "Vaccination Date":
+            n = 3
+        elif sortBy == "Vaccination Time":
+            n = 4
         self.tableWidget.setRowCount(50)
         tableRow = 0
         # display user at the center in a table
-        myCursor.execute("SELECT ic_number, user_name, phone_number, vaccination_date, vaccination_time, rsvp, state FROM userdata WHERE vaccination_venue = :venue LIMIT 50", {'venue':venue})
+        myCursor.execute(f"SELECT ic_number, user_name, phone_number, vaccination_date, vaccination_time, rsvp, state FROM userdata WHERE vaccination_venue = :venue", {'venue':venue, 'sortBy':sortBy})
         userdata = myCursor.fetchall()
+        userdata.sort(key = lambda userdata: userdata[n])
         for row in userdata:
             self.tableWidget.setItem(tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
             self.tableWidget.setItem(tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
