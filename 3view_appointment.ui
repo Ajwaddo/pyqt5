@@ -32,8 +32,8 @@ background-color:rgb(234, 234, 234);}</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>510</y>
+      <x>620</x>
+      <y>500</y>
       <width>251</width>
       <height>91</height>
      </rect>
@@ -127,6 +127,26 @@ font: 20pt &quot;Calibri&quot;;</string>
     </property>
     <property name="text">
      <string>at:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_back">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>500</y>
+      <width>251</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:20px;background-color:rgb(225, 134, 127);
+font: 20pt &quot;Calibri&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Back</string>
     </property>
    </widget>
   </widget>

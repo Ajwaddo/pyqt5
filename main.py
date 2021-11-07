@@ -11,9 +11,9 @@
 # *********************************************************
 # Task Distribution
 # Member_1:Account sign up & login authentication
-# Member_2:Menu and result display
-# Member_3:Public user update information & view appointment
-# Member_4:Administrator assign appointment,create vaccination center & generate list
+# Member_2:Edit user information and RSVP
+# Member_3:Public user update information, view appointment, user main menu
+# Member_4:Administrator assign appointment, create vaccination center & generate list
 # *********************************************************
 
 ########## import command for gui ##########
@@ -65,6 +65,7 @@ class LoginPage(QDialog):
         loadUi("1login_page.ui", self)
         self.login.clicked.connect(self.checkLogin)
         self.btn_goTosignup.clicked.connect(self.goToSignUp)
+        self.btn_back.clicked.connect(self.goToWelcomePage)
 
     # authenticate user phone number and ic during login
     def checkLogin(self): 
@@ -97,6 +98,11 @@ class LoginPage(QDialog):
         mainMenu = MainMenu(icNumber)
         widget.addWidget(mainMenu)
         widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def goToWelcomePage(self):
+        welcome_page = WelcomeScreen()
+        widget.addWidget(welcome_page)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
         
 class SignupPage(QDialog):
     def __init__(self): #5
@@ -104,6 +110,7 @@ class SignupPage(QDialog):
         loadUi("1signup_page.ui", self)
         self.signup.clicked.connect(self.userSignUp)
         self.goToSignIn.clicked.connect(self.goToLoginPage)
+        self.btn_back.clicked.connect(self.goToWelcomePage)
 
     # update user data in database userdata when user signs up
     def userSignUp(self): 
@@ -131,6 +138,11 @@ class SignupPage(QDialog):
         widget.addWidget(mainMenu)
         widget.setCurrentIndex(widget.currentIndex() + 1)
         self.clearBox()
+
+    def goToWelcomePage(self):
+        welcome_page = WelcomeScreen()
+        widget.addWidget(welcome_page)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
 
     def clearBox(self):
         self.text_edit_name.setText("")
@@ -218,11 +230,17 @@ class ViewAppointment(QDialog):
         self.label_time.setText(TIME)
         self.label_venue.setText(VENUE)
         self.btn_rsvp.clicked.connect(lambda: self.goToRSVP(icNumber))
+        self.btn_back.clicked.connect(lambda: self.goToMainMenu(icNumber))
 
     # function to navigate to other pages
     def goToRSVP(self, icNumber):
         rsvp = RSVP(icNumber)
         widget.addWidget(rsvp)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def goToMainMenu(self, icNumber):
+        main_menu = MainMenu(icNumber)
+        widget.addWidget(main_menu)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
 class Vaccination(QDialog):
@@ -340,7 +358,7 @@ class RSVP(QDialog):
         loadUi("2rsvp.ui", self)
         self.submit_rsvp.clicked.connect(lambda: self.SubmitRSVP(icNumber))
         self.radioButton_no.setChecked(True)
-
+        
     # function to navigate to other pages
     def goToMainMenu(self, icNumber):
         main_menu = MainMenu(icNumber)
@@ -358,7 +376,7 @@ class RSVP(QDialog):
             self.goToMainMenu(icNumber)
         else:
             # update rsvp info into database userdata(delete appointment details to give new appointment)
-            myCursor.execute("UPDATE userdata SET vaccination_date = :None, vaccination_time = :None, vaccination_venue = :None WHERE ic_number = :IC", {'IC':icNumber, "None":None, "None":None, "None":None})
+            myCursor.execute("UPDATE userdata SET rsvp = :None, vaccination_date = :None, vaccination_time = :None, vaccination_venue = :None WHERE ic_number = :IC", {'IC':icNumber, "None":None, "None":None, "None":None, "None":None})
             connection.commit()
             self.goToMainMenu(icNumber)
 

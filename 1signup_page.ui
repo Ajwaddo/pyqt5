@@ -45,7 +45,7 @@ background-color:rgb(234, 234, 234);}</string>
    <widget class="QPushButton" name="signup">
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>630</x>
       <y>630</y>
       <width>251</width>
       <height>91</height>
@@ -289,6 +289,23 @@ font: &quot;Calibri&quot;;</string>
     </property>
     <property name="text">
      <string>Sign in instead</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_back">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>630</y>
+      <width>251</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:20px;background-color:rgb(225, 134, 127);
+font: 24pt &quot;Calibri&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Back</string>
     </property>
    </widget>
   </widget>
