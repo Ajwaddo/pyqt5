@@ -24,7 +24,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget#widget{
-background-color:rgb(117, 13, 127);}</string>
+background-color:rgb(234, 234, 234);}</string>
    </property>
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -36,7 +36,7 @@ background-color:rgb(117, 13, 127);}</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 32pt &quot;Calibri&quot;;color:white</string>
+     <string notr="true">font: 32pt &quot;Calibri&quot;;color:black</string>
     </property>
     <property name="text">
      <string>Create Vaccination Center</string>
@@ -63,13 +63,13 @@ font: 20pt &quot;Calibri&quot;;</string>
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>180</y>
+      <y>140</y>
       <width>161</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 16pt &quot;Calibri&quot;;color:white</string>
+     <string notr="true">font: 16pt &quot;Calibri&quot;;color:black</string>
     </property>
     <property name="text">
      <string>Name</string>
@@ -79,7 +79,7 @@ font: 20pt &quot;Calibri&quot;;</string>
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>210</y>
+      <y>170</y>
       <width>721</width>
       <height>41</height>
      </rect>
@@ -93,7 +93,7 @@ font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>300</y>
+      <y>250</y>
       <width>721</width>
       <height>41</height>
      </rect>
@@ -107,13 +107,13 @@ font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>270</y>
+      <y>220</y>
       <width>161</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 16pt &quot;Calibri&quot;;color:white</string>
+     <string notr="true">font: 16pt &quot;Calibri&quot;;color:black</string>
     </property>
     <property name="text">
      <string>Postcode</string>
@@ -123,13 +123,13 @@ font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>360</y>
+      <y>300</y>
       <width>161</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 16pt &quot;Calibri&quot;;color:white</string>
+     <string notr="true">font: 16pt &quot;Calibri&quot;;color:black</string>
     </property>
     <property name="text">
      <string>Address</string>
@@ -139,13 +139,13 @@ font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>510</y>
+      <y>530</y>
       <width>201</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 16pt &quot;Calibri&quot;;color:white</string>
+     <string notr="true">font: 16pt &quot;Calibri&quot;;color:black</string>
     </property>
     <property name="text">
      <string>Capacity per hour</string>
@@ -155,13 +155,13 @@ font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>600</y>
+      <y>620</y>
       <width>191</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 16pt &quot;Calibri&quot;;color:white</string>
+     <string notr="true">font: 16pt &quot;Calibri&quot;;color:black</string>
     </property>
     <property name="text">
      <string>Capacity per day</string>
@@ -171,7 +171,7 @@ font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>390</y>
+      <y>330</y>
       <width>721</width>
       <height>111</height>
      </rect>
@@ -185,7 +185,7 @@ font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>540</y>
+      <y>560</y>
       <width>721</width>
       <height>41</height>
      </rect>
@@ -199,7 +199,7 @@ font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>630</y>
+      <y>650</y>
       <width>721</width>
       <height>41</height>
      </rect>
@@ -224,6 +224,36 @@ font: 20pt &quot;Calibri&quot;;</string>
     </property>
     <property name="text">
      <string>Back to Admin Page</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="text_edit_state">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>480</y>
+      <width>721</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(176, 176, 176);
+font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_name_6">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>450</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16pt &quot;Calibri&quot;;color:black</string>
+    </property>
+    <property name="text">
+     <string>State</string>
     </property>
    </widget>
   </widget>

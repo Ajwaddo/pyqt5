@@ -42,13 +42,13 @@ background-color:rgb(234, 234, 234);}</string>
      <string>Edit User</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="login">
+   <widget class="QPushButton" name="btn_update_new_info">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>670</y>
-      <width>331</width>
-      <height>91</height>
+      <x>440</x>
+      <y>660</y>
+      <width>341</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -75,11 +75,11 @@ font: 24pt &quot;Calibri&quot;;</string>
      <string>Please enter the information that you want to update</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="text_edit_phone_number">
+   <widget class="QLineEdit" name="text_edit_new_phone_number">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>290</y>
+      <x>650</x>
+      <y>280</y>
       <width>301</width>
       <height>41</height>
      </rect>
@@ -89,11 +89,11 @@ font: 24pt &quot;Calibri&quot;;</string>
 font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="text_edit_ic_number">
+   <widget class="QLineEdit" name="text_edit_new_ic_number">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>390</y>
+      <x>650</x>
+      <y>380</y>
       <width>301</width>
       <height>41</height>
      </rect>
@@ -106,8 +106,8 @@ font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>260</y>
+      <x>650</x>
+      <y>250</y>
       <width>161</width>
       <height>31</height>
      </rect>
@@ -122,8 +122,8 @@ font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>360</y>
+      <x>650</x>
+      <y>350</y>
       <width>161</width>
       <height>31</height>
      </rect>
@@ -152,11 +152,11 @@ font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
      <string/>
     </property>
    </widget>
-   <widget class="QLineEdit" name="text_edit_ic_number_2">
+   <widget class="QLineEdit" name="text_edit_new_name">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>480</y>
+      <x>270</x>
+      <y>280</y>
       <width>301</width>
       <height>41</height>
      </rect>
@@ -169,8 +169,8 @@ font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>450</y>
+      <x>270</x>
+      <y>250</y>
       <width>161</width>
       <height>31</height>
      </rect>
@@ -182,25 +182,11 @@ font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
      <string>Name</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="text_edit_ic_number_3">
-    <property name="geometry">
-     <rect>
-      <x>460</x>
-      <y>580</y>
-      <width>301</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:rgb(176, 176, 176);
-font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>550</y>
+      <y>460</y>
       <width>161</width>
       <height>31</height>
      </rect>
@@ -210,6 +196,51 @@ font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
     </property>
     <property name="text">
      <string>Address</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="text_edit_new_postcode">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>380</y>
+      <width>301</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(176, 176, 176);
+font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>350</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16pt &quot;Calibri&quot;;color:black
+</string>
+    </property>
+    <property name="text">
+     <string>Postcode</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_edit_new_address">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>490</y>
+      <width>321</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(176, 176, 176);
+font: 20pt &quot;Calibri&quot;;color:rgb(79, 79, 79)</string>
     </property>
    </widget>
   </widget>

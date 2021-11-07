@@ -29,7 +29,7 @@ background-color:rgb(234, 234, 234);}</string>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>300</x>
       <y>30</y>
       <width>191</width>
       <height>81</height>
@@ -42,7 +42,7 @@ background-color:rgb(234, 234, 234);}</string>
      <string>Users at:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="login_button">
+   <widget class="QPushButton" name="btn_goToAdminPage">
     <property name="geometry">
      <rect>
       <x>410</x>
@@ -107,9 +107,9 @@ font: 20pt &quot;Calibri&quot;;</string>
    <widget class="QComboBox" name="comboBox_vacc_center">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>150</x>
       <y>110</y>
-      <width>231</width>
+      <width>481</width>
       <height>41</height>
      </rect>
     </property>
@@ -120,7 +120,7 @@ font: 20pt &quot;Calibri&quot;;</string>
    <widget class="QComboBox" name="comboBox_sortBy">
     <property name="geometry">
      <rect>
-      <x>660</x>
+      <x>720</x>
       <y>110</y>
       <width>231</width>
       <height>41</height>
@@ -132,11 +132,6 @@ font: 20pt &quot;Calibri&quot;;</string>
     <item>
      <property name="text">
       <string>Name</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Age</string>
      </property>
     </item>
     <item>
@@ -175,7 +170,7 @@ font: 20pt &quot;Calibri&quot;;</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>740</x>
       <y>30</y>
       <width>191</width>
       <height>81</height>
